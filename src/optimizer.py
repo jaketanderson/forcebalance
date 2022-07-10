@@ -989,7 +989,7 @@ class Optimizer(forcebalance.BaseClass):
                 fout.evals += 1
                 X, G, H = [Result[i] for i in ['X','G','H']]
                 if callback:
-                    if X <= self.x_best or self.x_best is None:
+                    if self.x_best is None or X <= self.x_best:
                         color = "\x1b[92m"
                         self.x_best = X
                         self.prev_bad = False
